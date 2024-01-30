@@ -16,11 +16,11 @@ const prevButton = document.getElementById('prev-button')
 const nextButton = document.getElementById('next-button')
 
 nextButton.addEventListener("click", () => {
-    updateImage(Next)
+    updateImage("Next")
 })
 
 prevButton.addEventListener("click", () => {
-    updateImage(Previous)
+    updateImage("Previous")
 })
 //Use set intervale to update the image every 3 seconds
 let currentImageIndex = 0
@@ -31,7 +31,7 @@ let currentImageIndex = 0
 function updateImage(direction){
     if(direction == "next"){
         currentImageIndex++
-    }else if(direction == Previous){
+    }else if(direction == "Previous"){
         currentImageIndex--
     }else{
         currentImageIndex++
@@ -41,8 +41,8 @@ function updateImage(direction){
         currentImageIndex = 0;
     }
     
-    if(currentImageIndex <= imageURLs.length){
-        currentImageIndex = imageURLs.length;
+    if(currentImageIndex < 0){
+        currentImageIndex = imageURLs.length - 1;
     }
 
     slideShowImage.src = imageURLs[currentImageIndex]
